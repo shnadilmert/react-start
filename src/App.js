@@ -19,7 +19,7 @@ function App() {
   return (
     <div className={styles.App}>
 
-        <Title>{process.env.NODE_ENV}</Title>
+        <Title>{process.env.NODE_ENV} </Title>
         <Title theme="dark">{process.env.NODE_ENV}</Title>
 
         <p>
