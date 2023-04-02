@@ -1,23 +1,38 @@
 import logo from './logo.svg';
 
+import Test from './Test'
+import { useEffect } from 'react';
 
+import styles from './App.module.css'
+import {Title} from "./Components.js"
+import Bootstrap from './Bootsrap';
+import Tailwind from './Tailwind'
+
+import './tailwind.css'
 function App() {
+
+  useEffect(() => {
+    console.log(styles)
+  
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className={styles.App}>
+
+        <Title>{process.env.NODE_ENV}</Title>
+        <Title theme="dark">{process.env.NODE_ENV}</Title>
+
         <p>
-          Test
+          {process.env.REACT_APP_API_URL}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       
+        {process.env.NODE_ENV  === 'production' && (
+          <img src={logo} className="App-logo" alt="logo" />
+        )}
+        
+      <Test></Test>
+      <Bootstrap></Bootstrap>
+      <Tailwind></Tailwind>
     </div>
   );
 }
