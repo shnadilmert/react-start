@@ -1,43 +1,29 @@
-import logo from './logo.svg';
+import { createElement } from 'react';
 
-import Test from './Test'
-import { useEffect } from 'react';
-
-import styles from './App.module.css'
-import {Title} from "./Components.js"
-import Bootstrap from './Bootsrap';
-import Tailwind from './Tailwind'
-
-//import './tailwind.css'
 import './style.scss'
 
 function App() {
 
-  useEffect(() => {
-    console.log(styles)
-  
-  },[])
+  const todos=['todo1','todo2','todo3']
+  const h1= createElement('h1',null,'adilmertsahin.com')
+  const ul=createElement('ul',null,todos.map(todo=>createElement('li',null,todo)))
+  return createElement( 'main',{
+    className: 'test',
+    id: 'main'
+  }, h1,ul)
+
 
   return (
-    <div className={styles.App}>
-
-        <Title>{process.env.NODE_ENV} </Title>
-        <Title theme="dark">{process.env.NODE_ENV}</Title>
-
-        <p className='env'>
-          {process.env.REACT_APP_API_URL}
-          <span>test1</span>
-        </p>
-       
-        {process.env.NODE_ENV  === 'production' && (
-          <img src={logo} className="App-logo" alt="logo" />
-        )}
-        
-      <Test></Test>
-      <Bootstrap></Bootstrap>
-      <Tailwind></Tailwind>
-    </div>
+    <main>
+      <h1>adilmertsahin.com</h1>
+      <ul>
+        {todos.map(todo=>
+          <li>{todo}</li>)
+          }
+      </ul>
+    </main>
   );
+
 }
 
 export default App;
